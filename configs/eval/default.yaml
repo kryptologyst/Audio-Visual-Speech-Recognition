@@ -1,0 +1,24 @@
+# Evaluation configuration
+eval:
+  # Metrics
+  metrics:
+    - "wer"  # Word Error Rate
+    - "cer"  # Character Error Rate
+    - "bleu" # BLEU score
+    - "av_sync" # Audio-Visual synchronization accuracy
+    
+  # Evaluation settings
+  batch_size: 8
+  num_workers: 2
+  
+  # Beam search
+  beam_size: 5
+  length_penalty: 1.0
+  
+  # Output
+  save_predictions: true
+  output_dir: "eval_results"
+  
+  # Visualization
+  save_attention_maps: true
+  save_audio_visualizations: true

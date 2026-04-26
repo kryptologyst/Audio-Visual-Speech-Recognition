@@ -1,0 +1,38 @@
+# Model configuration for Audio-Visual Speech Recognition
+model:
+  name: "AVConformer"
+  audio:
+    encoder_type: "conformer"
+    input_dim: 80  # log-mel features
+    encoder_dim: 512
+    num_encoder_layers: 12
+    num_attention_heads: 8
+    conv_kernel_size: 31
+    dropout: 0.1
+    use_spec_aug: true
+    
+  visual:
+    encoder_type: "resnet18"
+    input_dim: 3  # RGB channels
+    hidden_dim: 512
+    num_frames: 25  # frames per second
+    dropout: 0.1
+    
+  fusion:
+    type: "cross_attention"  # cross_attention, late_fusion, early_fusion
+    hidden_dim: 512
+    num_heads: 8
+    dropout: 0.1
+    
+  decoder:
+    type: "transformer"
+    vocab_size: 5000
+    hidden_dim: 512
+    num_layers: 6
+    num_heads: 8
+    dropout: 0.1
+    
+  # Training specific
+  max_seq_length: 512
+  beam_size: 5
+  length_penalty: 1.0

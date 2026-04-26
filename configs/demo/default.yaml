@@ -1,0 +1,32 @@
+# Demo configuration
+demo:
+  # Model settings
+  model:
+    checkpoint_path: "outputs/best_model.pt"
+    config_path: "configs/model/av_conformer.yaml"
+  
+  # File upload settings
+  upload:
+    max_file_size: 100  # MB
+    supported_audio_formats: ["wav", "mp3", "flac"]
+    supported_video_formats: ["mp4", "avi", "mov"]
+  
+  # Processing settings
+  processing:
+    max_audio_duration: 30  # seconds
+    max_video_duration: 30  # seconds
+    target_fps: 25
+    target_resolution: [224, 224]
+  
+  # Visualization settings
+  visualization:
+    save_plots: true
+    plot_format: "png"
+    dpi: 300
+  
+  # UI settings
+  ui:
+    page_title: "Audio-Visual Speech Recognition Demo"
+    page_icon: "🎤"
+    layout: "wide"
+    sidebar_state: "expanded"
